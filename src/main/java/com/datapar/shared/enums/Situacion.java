@@ -5,10 +5,10 @@
 
 package com.datapar.shared.enums;
 
-public enum TipoServicio {
-    ABASTECIMIENTO,
-    TALLER;
+public enum Situacion {
+    ACTIVO,
+    INACTIVO;
 
-    private TipoServicio() {
+    private Situacion() {
     }
 }
