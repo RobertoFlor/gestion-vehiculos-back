@@ -6,10 +6,9 @@
 package com.datapar.model;
 
 import javax.validation.constraints.NotBlank;
-import java.util.UUID;
 
 public class Auto extends Main {
-    private final UUID chapa;
+    private final String chapa;
     @NotBlank(
             message = "El vehiculo no se puede registrar sin el numero de chasis"
     )
@@ -41,7 +40,7 @@ public class Auto extends Main {
         return new Auto.AutoBuilderImpl();
     }
 
-    public UUID getChapa() {
+    public String getChapa() {
         return this.chapa;
     }
 
@@ -205,21 +204,28 @@ public class Auto extends Main {
     }
 
     public String toString() {
-        UUID var10000 = this.getChapa();
+        String var10000 = this.getChapa();
         return "Auto(chapa=" + var10000 + ", chassis=" + this.getChassis() + ", fabricante=" + this.getFabricante() + ", modelo=" + this.getModelo() + ", kilometraje=" + this.getKilometraje() + ", anoModelo=" + this.getAnoModelo() + ", anoFabricacion=" + this.getAnoFabricacion() + ", descripcion=" + this.getDescripcion() + ")";
     }
 
+
+    //Mirar
+    //Buscar que funcion cumple o eliminar
     @Override
-    public void setchapa(UUID chapa) {
+    public void setchapa(String chapa) {
 
     }
 
+
+    //Mirar
+    //Buscar que funcion cumple o eliminar
     @Override
     public Object getLogin() {
         return null;
     }
 
-    private static final class AutoBuilderImpl extends Auto.AutoBuilder<Auto, Auto.AutoBuilderImpl> {
+    private static final class AutoBuilderImpl extends Auto.AutoBuilder<Auto, Auto.AutoBuilderImpl>
+    {
         private AutoBuilderImpl() {
         }
 
@@ -233,13 +239,14 @@ public class Auto extends Main {
     }
 
     public abstract static class AutoBuilder<C extends Auto, B extends Auto.AutoBuilder<C, B>> extends MainBuilder<C, B> {
-        private UUID chapa;
+        private String chapa;
         private String chassis;
         private String fabricante;
         private String modelo;
         private @NotBlank(
                 message = "Kilometrage no puede ser vacio"
-        ) Double kilometraje;
+        )
+        Double kilometraje;
         private Integer anoModelo;
         private Integer anoFabricacion;
         private String descripcion;
@@ -251,7 +258,7 @@ public class Auto extends Main {
 
         public abstract C build();
 
-        public B chapa(final UUID chapa) {
+        public B chapa(final String chapa) {
             this.chapa = chapa;
             return this.self();
         }

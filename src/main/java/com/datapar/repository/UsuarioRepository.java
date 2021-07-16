@@ -18,11 +18,15 @@ public class UsuarioRepository {
 
     private final List<Usuario> usuarios;
 
+
+    //Llanar a todos los usuarios
+    //usar para llamar todos los autos
     public List<Usuario> getAll() {
         return usuarios.stream()
                 .filter(u -> u.getSituacion().equals(Situacion.ACTIVO))
                 .collect(Collectors.toList());
     }
+
 
     public Optional<Usuario> getById(UUID id) {
         return usuarios.stream()
@@ -30,7 +34,13 @@ public class UsuarioRepository {
                 .findFirst();
     }
 
-    public Usuario save(@Valid Usuario usuario) throws Exception {
+
+
+
+
+    public Usuario save(@Valid Usuario usuario)
+            throws Exception
+    {
         Optional<Usuario> usuarioExistente = usuarios.stream()
                 .filter(u -> u.getId().equals(usuario.getId()) &&
                         u.getLogin().equals(usuario.getNombre()))
@@ -40,11 +50,12 @@ public class UsuarioRepository {
 
         usuario.setId(UUID.randomUUID());
         usuarios.add(usuario);
-
         return usuario;
     }
 
-    public Usuario update(UUID id, @Valid Usuario usuario) throws Exception {
+    public Usuario update(UUID id, @Valid Usuario usuario)
+            throws Exception
+    {
         Optional<Usuario> usuarioExistente = usuarios.stream()
                 .filter(u -> u.getId().equals(id))
                 .findFirst();
@@ -59,7 +70,9 @@ public class UsuarioRepository {
         return usuario;
     }
 
-    public void delete(UUID id) throws Exception {
+    public void delete(UUID id)
+            throws Exception
+    {
         Optional<Usuario> usuario = usuarios.stream()
                 .filter(u -> u.getId().equals(id))
                 .findFirst();

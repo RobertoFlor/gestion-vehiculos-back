@@ -9,7 +9,6 @@ import com.datapar.shared.enums.TipoUsuario;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.UUID;
 
 public class Usuario extends Main {
     @NotNull(
@@ -150,7 +149,7 @@ public class Usuario extends Main {
     }
 
     @Override
-    public void setchapa(UUID chapa) {
+    public void setchapa(String chapa) {
 
     }
 
@@ -185,11 +184,13 @@ public class Usuario extends Main {
             return this.self();
         }
 
+        //No Funciona
         public B login(final String login) {
             this.login = login;
             return this.self();
         }
 
+        //No funciona
         public B contrasena(final String contrasena) {
             this.contrasena = contrasena;
             return this.self();

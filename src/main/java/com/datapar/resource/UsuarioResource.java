@@ -29,6 +29,7 @@ public class UsuarioResource {
     public UsuarioResource() {
     }
 
+    //linea 24 repositorio medetod get all
     @GET
     public List<Usuario> getAllUsuarios() {
         this.logger.info("Retorno todo los usuarios");
@@ -43,13 +44,17 @@ public class UsuarioResource {
             try {
                 Usuario persistentUser = this.usuarioRepository.save(usuario);
                 return Response.status(Status.CREATED).entity(persistentUser).build();
-            } catch (Exception var4) {
+            }
+            catch (Exception var4)
+            {
                 return Response.serverError().entity(var4.getMessage()).build();
             }
         } catch (Throwable var5) {
             throw var5;
         }
     }
+
+
 
     @GET
     @Path("{id}")

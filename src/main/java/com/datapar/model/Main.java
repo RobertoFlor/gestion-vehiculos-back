@@ -20,21 +20,30 @@ public abstract class Main
                     access = Access.READ_ONLY
     )
 
-    private UUID chapa;
+
+    //Auto
+    //corregir
+    private String chapa;
         @JsonProperty(
                 access = Access.READ_ONLY
         )
 
+
+
+        //ID
     private UUID id;
     @JsonProperty(
             access = Access.READ_ONLY
     )
 
+    //Fecha de creacion
     @JsonbDateFormat("dd/MM/yyyy HH:mm:ss ")
     private Date fechaCreacion = new Date();
     @JsonProperty(
             access = Access.READ_ONLY
     )
+
+    //Fecha de edicion
     @JsonbDateFormat("dd/MM/yyyy HH:mm:ss ")
     private Date fechaAlteracion = new Date();
     @JsonProperty(
@@ -49,13 +58,15 @@ public abstract class Main
         this.situacion = b.situacion;
     }
 
-    //AUTO
-    public UUID getChapa() {
-            return this.chapa;
-        }
 
 
-        
+
+    //AUTo
+        // MIRA
+    public String getChapa() { return this.chapa;}
+
+
+
 
     public UUID getId() {
         return this.id;
@@ -164,6 +175,9 @@ public abstract class Main
         return other instanceof Main;
     }
 
+
+    //Estudiar
+        //Estudiar
     public int hashCode() {
         boolean PRIME = true;
         int result = 1;
@@ -178,6 +192,7 @@ public abstract class Main
         return result;
     }
 
+    //Estudiar
     public String toString() {
         UUID var10000 = this.getId();
         return "Main(id=" + var10000 + ", fechaCreacion=" + this.getFechaCreacion() + ", fechaAlteracion=" + this.getFechaAlteracion() + ", situacion=" + this.getSituacion() + ")";
@@ -193,13 +208,13 @@ public abstract class Main
     public Main() {
     }
 
-        public abstract void setchapa(UUID chapa);
+        public void setchapa(String chapa){
+            this.chapa = chapa;
+        }
 
         public abstract Object getLogin();
 
-        public void setChapa(UUID chapa) {
-            this.chapa = chapa;
-        }
+
 
         public abstract static class MainBuilder<C extends Main, B extends Main.MainBuilder<C, B>> {
         private UUID id;
